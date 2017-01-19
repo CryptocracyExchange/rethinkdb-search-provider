@@ -1,4 +1,3 @@
-// var request = require('request');
 var SearchProvider = require( 'deepstream.io-provider-search-rethinkdb' );
 
 var searchProvider = new SearchProvider({

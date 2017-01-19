@@ -1,6 +1,6 @@
 FROM node:7.4-alpine
 
-RUN apk add --update python make g++
+# RUN apk add --update python make g++
 
 # Set default environment variables
 ENV DEEPSTREAM_HOST=deepstream \
@@ -16,11 +16,11 @@ ENV DEEPSTREAM_HOST=deepstream \
 RUN mkdir -p /usr/local/app
 WORKDIR /usr/local/app
 
-# Install deepstream as an application dependency
-RUN npm install deepstream.io-provider-search-rethinkdb --production
+COPY ./ ./
 
-# Copy start script
-COPY search-provider.js search-provider.js
+# RUN npm install
+# RUN rm ./node_modules/deepstream.io-provider-search-rethinkdb/src/search.js
+# RUN mv 
 
 # Define default command.
-CMD [ "node", "search-provider" ]
+CMD [ "node", "index.js" ]
